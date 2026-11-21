@@ -1,0 +1,147 @@
+{
+  "version": 2,
+  "dgSpecHash": "WpNCtNK42Wo=",
+  "success": true,
+  "projectFilePath": "/Users/anujkumarpati/MyDietPlanner/dotnetapp/dotnetapp.csproj",
+  "expectedPackageFiles": [
+    "/Users/anujkumarpati/.nuget/packages/bcrypt.net-next/4.2.0/bcrypt.net-next.4.2.0.nupkg.sha512",
+    "/Users/anujkumarpati/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
+    "/Users/anujkumarpati/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/6.0.0/microsoft.aspnetcore.authentication.jwtbearer.6.0.0.nupkg.sha512",
+    "/Users/anujkumarpati/.nuget/packages/microsoft.aspnetcore.identity.entityframeworkcore/6.0.0/microsoft.aspnetcore.identity.entityframeworkcore.6.0.0.nupkg.sha512",
+    "/Users/anujkumarpati/.nuget/packages/microsoft.data.sqlclient/2.1.4/microsoft.data.sqlclient.2.1.4.nupkg.sha512",
+    "/Users/anujkumarpati/.nuget/packages/microsoft.data.sqlclient.sni.runtime/2.1.1/microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
+    "/Users/anujkumarpati/.nuget/packages/microsoft.entityframeworkcore/6.0.7/microsoft.entityframeworkcore.6.0.7.nupkg.sha512",
+    "/Users/anujkumarpati/.nuget/packages/microsoft.entityframeworkcore.abstractions/6.0.7/microsoft.entityframeworkcore.abstractions.6.0.7.nupkg.sha512",
+    "/Users/anujkumarpati/.nuget/packages/microsoft.entityframeworkcore.analyzers/6.0.7/microsoft.entityframeworkcore.analyzers.6.0.7.nupkg.sha512",
+    "/Users/anujkumarpati/.nuget/packages/microsoft.entityframeworkcore.design/6.0.0/microsoft.entityframeworkcore.design.6.0.0.nupkg.sha512",
+    "/Users/anujkumarpati/.nuget/packages/microsoft.entityframeworkcore.inmemory/6.0.0/microsoft.entityframeworkcore.inmemory.6.0.0.nupkg.sha512",
+    "/Users/anujkumarpati/.nuget/packages/microsoft.entityframeworkcore.relational/6.0.7/microsoft.entityframeworkcore.relational.6.0.7.nupkg.sha512",
+    "/Users/anujkumarpati/.nuget/packages/microsoft.entityframeworkcore.sqlserver/6.0.0/microsoft.entityframeworkcore.sqlserver.6.0.0.nupkg.sha512",
+    "/Users/anujkumarpati/.nuget/packages/microsoft.entityframeworkcore.tools/6.0.0/microsoft.entityframeworkcore.tools.6.0.0.nupkg.sha512",
+    "/Users/anujkumarpati/.nuget/packages/microsoft.extensions.apidescription.server/3.0.0/microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "/Users/anujkumarpati/.nuget/packages/microsoft.identity.client/4.21.1/microsoft.identity.client.4.21.1.nupkg.sha512",
+    "/Users/anujkumarpati/.nuget/packages/microsoft.identitymodel.jsonwebtokens/6.10.0/microsoft.identitymodel.jsonwebtokens.6.10.0.nupkg.sha512",
+    "/Users/anujkumarpati/.nuget/packages/microsoft.identitymodel.logging/6.10.0/microsoft.identitymodel.logging.6.10.0.nupkg.sha512",
+    "/Users/anujkumarpati/.nuget/packages/microsoft.identitymodel.protocols/6.10.0/microsoft.identitymodel.protocols.6.10.0.nupkg.sha512",
+    "/Users/anujkumarpati/.nuget/packages/microsoft.identitymodel.protocols.openidconnect/6.10.0/microsoft.identitymodel.protocols.openidconnect.6.10.0.nupkg.sha512",
+    "/Users/anujkumarpati/.nuget/packages/microsoft.identitymodel.tokens/6.10.0/microsoft.identitymodel.tokens.6.10.0.nupkg.sha512",
+    "/Users/anujkumarpati/.nuget/packages/microsoft.netcore.platforms/3.1.0/microsoft.netcore.platforms.3.1.0.nupkg.sha512",
+    "/Users/anujkumarpati/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
+    "/Users/anujkumarpati/.nuget/packages/microsoft.win32.systemevents/4.7.0/microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "/Users/anujkumarpati/.nuget/packages/mysqlconnector/2.1.2/mysqlconnector.2.1.2.nupkg.sha512",
+    "/Users/anujkumarpati/.nuget/packages/netstandard.library/2.0.0/netstandard.library.2.0.0.nupkg.sha512",
+    "/Users/anujkumarpati/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512",
+    "/Users/anujkumarpati/.nuget/packages/nunit/3.13.3/nunit.3.13.3.nupkg.sha512",
+    "/Users/anujkumarpati/.nuget/packages/nunit3testadapter/3.0.10/nunit3testadapter.3.0.10.nupkg.sha512",
+    "/Users/anujkumarpati/.nuget/packages/pomelo.entityframeworkcore.mysql/6.0.2/pomelo.entityframeworkcore.mysql.6.0.2.nupkg.sha512",
+    "/Users/anujkumarpati/.nuget/packages/swashbuckle.aspnetcore/6.2.3/swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "/Users/anujkumarpati/.nuget/packages/swashbuckle.aspnetcore.swagger/6.2.3/swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "/Users/anujkumarpati/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.2.3/swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "/Users/anujkumarpati/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.2.3/swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512",
+    "/Users/anujkumarpati/.nuget/packages/system.configuration.configurationmanager/4.7.0/system.configuration.configurationmanager.4.7.0.nupkg.sha512",
+    "/Users/anujkumarpati/.nuget/packages/system.drawing.common/4.7.0/system.drawing.common.4.7.0.nupkg.sha512",
+    "/Users/anujkumarpati/.nuget/packages/system.identitymodel.tokens.jwt/6.10.0/system.identitymodel.tokens.jwt.6.10.0.nupkg.sha512",
+    "/Users/anujkumarpati/.nuget/packages/system.runtime.caching/4.7.0/system.runtime.caching.4.7.0.nupkg.sha512",
+    "/Users/anujkumarpati/.nuget/packages/system.security.cryptography.protecteddata/4.7.0/system.security.cryptography.protecteddata.4.7.0.nupkg.sha512",
+    "/Users/anujkumarpati/.nuget/packages/system.security.permissions/4.7.0/system.security.permissions.4.7.0.nupkg.sha512",
+    "/Users/anujkumarpati/.nuget/packages/system.windows.extensions/4.7.0/system.windows.extensions.4.7.0.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1603",
+      "level": "Warning",
+      "message": "dotnetapp depends on NUnit3TestAdapter (>= 3.0.0) but NUnit3TestAdapter 3.0.0 was not found. NUnit3TestAdapter 3.0.10 was resolved instead.",
+      "projectPath": "/Users/anujkumarpati/MyDietPlanner/dotnetapp/dotnetapp.csproj",
+      "warningLevel": 1,
+      "filePath": "/Users/anujkumarpati/MyDietPlanner/dotnetapp/dotnetapp.csproj",
+      "libraryId": "NUnit3TestAdapter",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    },
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "message": "Package 'Microsoft.Data.SqlClient' 2.1.4 has a known high severity vulnerability, https://github.com/advisories/GHSA-98g6-xh36-x2p7",
+      "projectPath": "/Users/anujkumarpati/MyDietPlanner/dotnetapp/dotnetapp.csproj",
+      "warningLevel": 1,
+      "filePath": "/Users/anujkumarpati/MyDietPlanner/dotnetapp/dotnetapp.csproj",
+      "libraryId": "Microsoft.Data.SqlClient",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    },
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "message": "Package 'Microsoft.IdentityModel.JsonWebTokens' 6.10.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-59j7-ghrg-fj52",
+      "projectPath": "/Users/anujkumarpati/MyDietPlanner/dotnetapp/dotnetapp.csproj",
+      "warningLevel": 1,
+      "filePath": "/Users/anujkumarpati/MyDietPlanner/dotnetapp/dotnetapp.csproj",
+      "libraryId": "Microsoft.IdentityModel.JsonWebTokens",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    },
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "message": "Package 'MySqlConnector' 2.1.2 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-473q-m89c-ghf8",
+      "projectPath": "/Users/anujkumarpati/MyDietPlanner/dotnetapp/dotnetapp.csproj",
+      "warningLevel": 1,
+      "filePath": "/Users/anujkumarpati/MyDietPlanner/dotnetapp/dotnetapp.csproj",
+      "libraryId": "MySqlConnector",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    },
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "message": "Package 'Swashbuckle.AspNetCore.SwaggerUI' 6.2.3 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-qrmm-w75w-3wpx",
+      "projectPath": "/Users/anujkumarpati/MyDietPlanner/dotnetapp/dotnetapp.csproj",
+      "warningLevel": 1,
+      "filePath": "/Users/anujkumarpati/MyDietPlanner/dotnetapp/dotnetapp.csproj",
+      "libraryId": "Swashbuckle.AspNetCore.SwaggerUI",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    },
+    {
+      "code": "NU1904",
+      "level": "Warning",
+      "message": "Package 'System.Drawing.Common' 4.7.0 has a known critical severity vulnerability, https://github.com/advisories/GHSA-rxg9-xrhp-64gj",
+      "projectPath": "/Users/anujkumarpati/MyDietPlanner/dotnetapp/dotnetapp.csproj",
+      "warningLevel": 1,
+      "filePath": "/Users/anujkumarpati/MyDietPlanner/dotnetapp/dotnetapp.csproj",
+      "libraryId": "System.Drawing.Common",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    },
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "message": "Package 'System.IdentityModel.Tokens.Jwt' 6.10.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-59j7-ghrg-fj52",
+      "projectPath": "/Users/anujkumarpati/MyDietPlanner/dotnetapp/dotnetapp.csproj",
+      "warningLevel": 1,
+      "filePath": "/Users/anujkumarpati/MyDietPlanner/dotnetapp/dotnetapp.csproj",
+      "libraryId": "System.IdentityModel.Tokens.Jwt",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "message": "Package 'NUnit3TestAdapter 3.0.10' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net10.0'. This package may not be fully compatible with your project.",
+      "projectPath": "/Users/anujkumarpati/MyDietPlanner/dotnetapp/dotnetapp.csproj",
+      "warningLevel": 1,
+      "filePath": "/Users/anujkumarpati/MyDietPlanner/dotnetapp/dotnetapp.csproj",
+      "libraryId": "NUnit3TestAdapter",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    }
+  ]
+}
