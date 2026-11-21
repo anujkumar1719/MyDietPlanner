@@ -1,0 +1,88 @@
+<div class="form-card">
+  <h2>Create New Diet Plan</h2>
+ 
+  <form #planForm="ngForm" (ngSubmit)="submit(planForm)">
+ 
+    <label>Plan Name<span>*</span></label>
+    <input type="text"
+       name="planName"
+       required
+       minlength="3"
+       pattern="^[A-Za-z][A-Za-z ]*$"
+       [(ngModel)]="plan.planName"
+       #planName="ngModel">
+
+    <div class="error" *ngIf="planName.errors?.['required'] && planName.touched">
+      *Plan Name is required
+    </div>
+
+    <div class="error" *ngIf="planName.errors?.['minlength'] && planName.touched">
+      *Plan Name must be at least 3 characters
+    </div>
+
+    <div class="error" *ngIf="planName.errors?.['pattern'] && planName.touched">
+      *Plan Name must start with a letter and contain only alphabets and spaces
+    </div>
+ 
+    <label>Description<span>*</span></label>
+    <textarea
+        name="description"
+        required
+        pattern="^[A-Z].*"
+        [(ngModel)]="plan.description"
+        #description="ngModel">
+    </textarea>
+    <div class="error" *ngIf="description.errors?.['required'] && description.touched">
+        *Description is required
+    </div>
+    <div class="error" *ngIf="description.errors?.['pattern'] && description.touched">
+        *Description must start with a capital letter and cannot begin with a space
+    </div>
+
+    <label>Duration<span>*</span></label>
+    <input type="number"
+          name="duration"
+          required
+          min="1"
+          max="365"
+          [(ngModel)]="plan.duration"
+          #duration="ngModel">
+    <div class="error" *ngIf="duration.errors?.['required'] && duration.touched">
+      *Duration is required
+    </div>
+    <div class="error" *ngIf="duration.errors?.['min'] && duration.touched">
+      *Duration must be at least 1 day
+    </div>
+
+    <div class="error" *ngIf="duration.errors?.['max'] && duration.touched">
+      *Duration cannot exceed 365 days (1 year)
+    </div>
+    
+    <div class="error" *ngIf="duration.errors?.['min'] && duration.touched">
+      *Duration must be greater than 0
+    </div>
+
+    <label>Created At</label>
+    <input
+        type="date"
+        name="createdAt"
+        required
+        [(ngModel)]="plan.createdAt"
+        #createdAt="ngModel"
+        readonly>
+ 
+    <div class="error" *ngIf="planForm.submitted && planForm.invalid">
+      *All fields are required
+    </div>
+ 
+    <button type="submit" [disabled]="planForm.invalid">Submit</button>
+ 
+  </form>
+</div>
+ 
+<div class="overlay" *ngIf="showPopup">
+  <div class="popup">
+    <p>Successfully Added!</p>
+    <button type="button" (click)="ok()">Ok</button>
+  </div>
+</div>

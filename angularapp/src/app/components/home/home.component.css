@@ -1,0 +1,144 @@
+.dashboard-container {
+  padding: 40px;
+  background: linear-gradient(135deg,#f5fff6,#ffffff);
+  min-height: calc(100vh - 78px);
+}
+
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.hero-left {
+  width: 50%;
+  animation: slideLeft .8s ease;
+}
+
+.hero-left h1 {
+  font-size: 60px;
+  color: #0f172a;
+  margin-bottom: 15px;
+}
+
+.hero-left span {
+  color: #2e9f44;
+}
+
+.hero-left p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #475569;
+}
+
+.hero-right {
+  width: 45%;
+  position: relative;
+  animation: slideRight .8s ease;
+}
+
+.hero-image {
+  width: 100%;
+  border-radius: 30px;
+  box-shadow: 0 15px 35px rgba(0,0,0,.15);
+}
+
+.floating-box {
+  position: absolute;
+  background: white;
+  padding: 15px 20px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.12);
+  font-weight: 600;
+}
+
+.box-1 {
+  top: 20px;
+  left: -30px;
+  animation: float 4s infinite;
+}
+
+.box-2 {
+  bottom: 20px;
+  right: -20px;
+  animation: float 5s infinite;
+}
+
+.feature-grid {
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 25px;
+}
+
+.feature-card {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,.08);
+  transition: .3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+}
+
+.icon {
+  font-size: 45px;
+  margin-bottom: 15px;
+}
+
+.feature-card h3 {
+  color: #0f172a;
+}
+
+.feature-card p {
+  color: #64748b;
+  line-height: 1.7;
+}
+
+@keyframes float {
+  50% {
+      transform: translateY(-10px);
+  }
+}
+
+@keyframes slideLeft {
+  from {
+      opacity: 0;
+      transform: translateX(-50px);
+  }
+  to {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  from {
+      opacity: 0;
+      transform: translateX(50px);
+  }
+  to {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
+
+@media(max-width:992px) {
+
+  .hero-section {
+      flex-direction: column;
+  }
+
+  .hero-left,
+  .hero-right {
+      width: 100%;
+  }
+
+  .feature-grid {
+      grid-template-columns: 1fr;
+  }
+}

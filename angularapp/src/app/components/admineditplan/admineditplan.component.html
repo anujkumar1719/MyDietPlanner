@@ -1,0 +1,38 @@
+<div class="form-card">
+  <button class="back-btn" type="button" (click)="back()">Back</button>
+ 
+  <h2>Edit Diet Plan</h2>
+ 
+  <form #editForm="ngForm" (ngSubmit)="update(editForm)">
+ 
+    <label>Plan Name<span>*</span></label>
+    <input type="text" name="planName" required [(ngModel)]="plan.planName" #planName="ngModel">
+    <div class="error" *ngIf="planName.invalid && planName.touched">*Plan Name is required</div>
+ 
+    <label>Description<span>*</span></label>
+    <textarea name="description" required [(ngModel)]="plan.description" #description="ngModel"></textarea>
+    <div class="error" *ngIf="description.invalid && description.touched">*Description is required</div>
+ 
+    <label>Duration<span>*</span></label>
+    <input type="number" name="duration" required [(ngModel)]="plan.duration" #duration="ngModel">
+    <div class="error" *ngIf="duration.invalid && duration.touched">*Duration is required</div>
+
+    <label>Created At<span>*</span></label>
+    <input type="date" name="createdAt" required [(ngModel)]="plan.createdAt" #createdAt="ngModel">
+    <div class="error" *ngIf="createdAt.invalid && createdAt.touched">*Created At is required</div>
+ 
+    <div class="error" *ngIf="editForm.submitted && editForm.invalid">
+      *All fields are required
+    </div>
+ 
+    <button type="submit">Update</button>
+ 
+  </form>
+</div>
+ 
+<div class="overlay" *ngIf="showPopup">
+  <div class="popup">
+    <p>Updated successfully</p>
+    <button type="button" (click)="ok()">Ok</button>
+  </div>
+</div>

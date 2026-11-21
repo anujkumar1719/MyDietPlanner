@@ -1,0 +1,127 @@
+<div class="container">
+
+  <h1>Diet Plans</h1>
+
+  <hr>
+
+  <input
+    type="text"
+    name="searchText"
+    placeholder="Search..."
+    [(ngModel)]="searchText"
+    (input)="searchPlan()"
+    class="search-box">
+
+  <table>
+
+    <thead>
+      <tr>
+        <th>S.No</th>
+        <th>Plan Name</th>
+        <th>Description</th>
+        <th>Duration</th>
+        <th>Created At</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <tr *ngIf="isLoading">
+        <td colspan="6" class="loading-cell">
+          <div class="loader"></div>
+          <p>Loading Diet Plans...</p>
+        </td>
+      </tr>
+
+      <tr *ngIf="filteredPlans.length === 0 && !isLoading">
+        <td colspan="6">
+          Oops! No records Found
+        </td>
+      </tr>
+
+      <tr *ngFor="let plan of paginatedPlans; let i = index">
+
+        <td>
+          {{ ((currentPage - 1) * pageSize) + i + 1 }}
+        </td>
+
+        <td>{{ plan.planName }}</td>
+
+        <td>{{ plan.description }}</td>
+
+        <td>{{ plan.duration }}</td>
+
+        <td>{{ plan.createdAt | date:'yyyy-MM-dd' }}</td>
+
+        <td>
+          <button
+            class="edit"
+            (click)="edit(plan.dietPlanId!)">
+            Edit
+          </button>
+
+          <button
+            class="delete"
+            (click)="openDelete(plan.dietPlanId!)">
+            Delete
+          </button>
+        </td>
+
+      </tr>
+
+    </tbody>
+
+  </table>
+
+  <!-- Pagination -->
+  <div
+    class="pagination"
+    *ngIf="filteredPlans.length > 0">
+
+    <button
+      (click)="prevPage()"
+      [disabled]="currentPage === 1">
+      Previous
+    </button>
+
+    <span class="page-info">
+      Page {{ currentPage }} of {{ totalPages }}
+    </span>
+
+    <button
+      (click)="nextPage()"
+      [disabled]="currentPage === totalPages">
+      Next
+    </button>
+
+  </div>
+
+</div>
+
+<!-- Delete Popup -->
+<div
+  class="overlay"
+  *ngIf="showDeletePopup">
+
+  <div class="popup">
+
+    <p>
+      Are you sure you want to delete?
+    </p>
+
+    <button
+      class="delete"
+      (click)="confirmDelete()">
+      Yes, Delete
+    </button>
+
+    <button
+      (click)="cancelDelete()"
+      class="cancel-btn">
+      Cancel
+    </button>
+
+  </div>
+
+</div>

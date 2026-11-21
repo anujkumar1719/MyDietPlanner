@@ -1,0 +1,239 @@
+<div class="container">
+
+  <h1>Diet Plan Requests for Approval</h1>
+
+  <hr>
+
+  <input
+    type="text"
+    name="searchText"
+    placeholder="Search by Plan Name..."
+    [(ngModel)]="searchText"
+    (input)="filterData()"
+    class="search-box">
+
+  <select
+    name="statusFilter"
+    [(ngModel)]="statusFilter"
+    (change)="filterData()"
+    class="filter-box">
+
+    <option value="">Filter by Status</option>
+    <option value="Pending">Pending</option>
+    <option value="Approved">Approved</option>
+    <option value="Rejected">Rejected</option>
+
+  </select>
+
+  <table>
+
+    <thead>
+
+      <tr>
+        <th>S.No</th>
+        <th>Username</th>
+        <th>Plan Name</th>
+        <th>Submission Date</th>
+        <th>Age</th>
+        <th>Weight</th>
+        <th>Height</th>
+        <th>Gender</th>
+        <th>Activity Level</th>
+        <th>Goal</th>
+        <th>Medical Conditions</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+
+    </thead>
+
+    <tbody>
+
+      <tr *ngIf="isRequestedPlanLoad">
+        <td colspan="13" class="loading-cell">
+          <div class="loader"></div>
+          <p>Loading Requested Plans...</p>
+        </td>
+      </tr>
+
+      <tr *ngIf="filteredRequests.length === 0 && !isRequestedPlanLoad">
+        <td colspan="13">
+          Oops! No records Found
+        </td>
+      </tr>
+
+      <tr *ngFor="let item of paginatedRequests; let i = index">
+
+        <td>
+          {{ ((currentPage - 1) * pageSize) + i + 1 }}
+        </td>
+
+        <td>
+          {{ item.user?.username }}
+        </td>
+
+        <td>
+          {{ item.dietPlan?.planName }}
+        </td>
+
+        <td>
+          {{ item.createdAt | date:'yyyy-MM-dd' }}
+        </td>
+
+        <td>
+          {{ item.age }}
+        </td>
+
+        <td>
+          {{ item.weight }}
+        </td>
+
+        <td>
+          {{ item.height }}
+        </td>
+
+        <td>
+          {{ item.gender }}
+        </td>
+
+        <td>
+          {{ item.activityLevel }}
+        </td>
+
+        <td>
+          {{ item.goal }}
+        </td>
+
+        <td>
+          {{ item.medicalConditions }}
+        </td>
+
+        <td>
+
+          <span
+            class="pending"
+            *ngIf="item.status === 'Pending'">
+            Pending
+          </span>
+
+          <span
+            class="approved"
+            *ngIf="item.status === 'Approved'">
+            Approved
+          </span>
+
+          <span
+            class="rejected"
+            *ngIf="item.status === 'Rejected'">
+            Rejected
+          </span>
+
+        </td>
+
+        <td>
+
+          <ng-container *ngIf="item.status === 'Pending'">
+
+            <button
+              class="approve"
+              (click)="approve(item)">
+              Approve
+            </button>
+
+            <button
+              class="reject"
+              (click)="reject(item)">
+              Reject
+            </button>
+
+          </ng-container>
+
+          <button
+            *ngIf="item.status === 'Approved'"
+            class="reject"
+            (click)="reject(item)">
+            Reject
+          </button>
+
+          <button
+            *ngIf="item.status === 'Rejected'"
+            class="approve"
+            (click)="approve(item)">
+            Approve
+          </button>
+
+          <button
+            class="more"
+            (click)="showMore(item)">
+            Show More
+          </button>
+
+        </td>
+
+      </tr>
+
+    </tbody>
+
+  </table>
+
+  <!-- Pagination -->
+
+  <div
+    class="pagination"
+    *ngIf="filteredRequests.length > 0">
+
+    <button
+      (click)="prevPage()"
+      [disabled]="currentPage === 1">
+
+      Previous
+
+    </button>
+
+    <span class="page-info">
+      Page {{ currentPage }} of {{ totalPages }}
+    </span>
+
+    <button
+      (click)="nextPage()"
+      [disabled]="currentPage === totalPages">
+
+      Next
+
+    </button>
+
+  </div>
+
+</div>
+
+<!-- Show More Popup -->
+
+<div
+  class="overlay"
+  *ngIf="selectedPlan">
+
+  <div class="popup">
+
+    <button
+      class="close"
+      (click)="closeModal()">
+
+      X
+
+    </button>
+
+    <h3>Plan Details</h3>
+
+    <p>
+      <b>Description:</b>
+      {{ selectedPlan.description || selectedPlan.dietPlan?.description }}
+    </p>
+
+    <p>
+      <b>Duration:</b>
+      {{ selectedPlan.duration || selectedPlan.dietPlan?.duration }}
+    </p>
+
+  </div>
+
+</div>

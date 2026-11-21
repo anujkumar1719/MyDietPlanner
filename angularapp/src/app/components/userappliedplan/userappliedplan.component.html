@@ -1,0 +1,198 @@
+<div class="container">
+
+  <h1>Applied Diet Plans</h1>
+
+  <hr>
+
+  <input
+    type="text"
+    placeholder="Search..."
+    name="searchText"
+    [(ngModel)]="searchText"
+    (input)="searchPlan()"
+    class="search-box">
+
+  <table>
+
+    <thead>
+
+      <tr>
+        <th>S.No</th>
+        <th>Plan Name</th>
+        <th>Submission Date</th>
+        <th>Age</th>
+        <th>Weight</th>
+        <th>Height</th>
+        <th>Gender</th>
+        <th>Activity Level</th>
+        <th>Goal</th>
+        <th>Medical Conditions</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+
+    </thead>
+
+    <tbody>
+
+      <tr *ngIf="isLoadApplied">
+        <td colspan="12" class="loading-cell">
+          <p>Loading Applied Plans...</p>
+        </td>
+      </tr>
+
+      <tr *ngIf="filteredRequests.length === 0 && !isLoadApplied">
+        <td colspan="12">
+          Oops! No records Found
+        </td>
+      </tr>
+
+      <tr *ngFor="let item of paginatedRequests; let i = index">
+
+        <td>
+          {{ ((currentPage - 1) * pageSize) + i + 1 }}
+        </td>
+
+        <td>
+          {{ item.dietPlan?.planName }}
+        </td>
+
+        <td>
+          {{ item.createdAt | date:'yyyy-MM-dd' }}
+        </td>
+
+        <td>
+          {{ item.age }}
+        </td>
+
+        <td>
+          {{ item.weight }}
+        </td>
+
+        <td>
+          {{ item.height }}
+        </td>
+
+        <td>
+          {{ item.gender }}
+        </td>
+
+        <td>
+          {{ item.activityLevel }}
+        </td>
+
+        <td>
+          {{ item.goal }}
+        </td>
+
+        <td>
+          {{ item.medicalConditions }}
+        </td>
+
+        <td>
+
+          <span
+            class="pending"
+            *ngIf="item.status == 'Pending'">
+
+            Pending
+
+          </span>
+
+          <span
+            class="approved"
+            *ngIf="item.status == 'Approved'">
+
+            Approved
+
+          </span>
+
+          <span
+            class="rejected"
+            *ngIf="item.status == 'Rejected'">
+
+            Rejected
+
+          </span>
+
+        </td>
+
+        <td>
+
+          <button
+            class="delete-btn"
+            (click)="openDelete(item.dietPlanRequestId)">
+
+            Delete
+
+          </button>
+
+        </td>
+
+      </tr>
+
+    </tbody>
+
+  </table>
+
+  <!-- Pagination -->
+
+  <div
+    class="pagination"
+    *ngIf="filteredRequests.length > 0">
+
+    <button
+      (click)="prevPage()"
+      [disabled]="currentPage === 1">
+
+      Previous
+
+    </button>
+
+    <span class="page-info">
+      Page {{ currentPage }} of {{ totalPages }}
+    </span>
+
+    <button
+      (click)="nextPage()"
+      [disabled]="currentPage === totalPages">
+
+      Next
+
+    </button>
+
+  </div>
+
+</div>
+
+<!-- Delete Confirmation Popup -->
+
+<div
+  class="overlay"
+  *ngIf="showDeletePopup">
+
+  <div class="popup">
+
+    <p>
+      Are you sure you want to delete?
+    </p>
+
+    <button
+      class="delete-btn"
+      (click)="confirmDelete()">
+
+      Yes Delete
+
+    </button>
+
+    <button
+      class="cancel-btn"
+      (click)="cancelDelete()">
+
+      Cancel
+
+    </button>
+
+  </div>
+
+</div>

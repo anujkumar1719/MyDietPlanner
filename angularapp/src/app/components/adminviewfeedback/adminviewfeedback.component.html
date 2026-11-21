@@ -1,0 +1,107 @@
+<div class="container">
+
+  <h1>Feedback Details</h1>
+  <br><br>
+
+  <hr>
+
+  <table>
+
+    <thead>
+      <tr>
+        <th>S.No</th>
+        <th>User Name</th>
+        <th>Feedback</th>
+        <th>Posted Date</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <tr *ngIf="isFeedLoading">
+        <td colspan="5" class="loading-cell">
+          <div class="loader"></div>
+          <p>Loading Feedbacks...</p>
+        </td>
+      </tr>
+
+      <tr *ngIf="feedbacks.length === 0 && !isFeedLoading">
+        <td colspan="5">No data found</td>
+      </tr>
+
+      <tr *ngFor="let item of paginatedFeedbacks; let i = index">
+        <td>{{ ((currentPage - 1) * pageSize) + i + 1 }}</td>
+
+        <td>
+          {{ item.user?.username }}
+        </td>
+
+        <td>
+          {{ item.feedbackText }}
+        </td>
+
+        <td>
+          {{ item.date | date:'yyyy-MM-dd' }}
+        </td>
+
+        <td>
+          <button class="profile-btn" (click)="showProfile(item)">
+            Show Profile
+          </button>
+        </td>
+      </tr>
+
+    </tbody>
+
+  </table>
+
+  <!-- Pagination -->
+  <div class="pagination" *ngIf="feedbacks.length > 0">
+
+    <button
+      (click)="prevPage()"
+      [disabled]="currentPage === 1">
+      Previous
+    </button>
+
+    <span class="page-info">
+      Page {{ currentPage }} of {{ totalPages }}
+    </span>
+
+    <button
+      (click)="nextPage()"
+      [disabled]="currentPage === totalPages">
+      Next
+    </button>
+
+  </div>
+
+</div>
+
+<div class="overlay" *ngIf="selectedUser">
+
+  <div class="popup">
+
+    <button class="close-btn" (click)="closeProfile()">X</button>
+
+    <h2>User Profile</h2>
+
+    <p>
+      <b>Email:</b>
+      {{ selectedUser.email || selectedUser.user?.email }}
+    </p>
+
+    <p>
+      <b>Username:</b>
+      {{ selectedUser.username || selectedUser.userName || selectedUser.user?.username }}
+    </p>
+
+    <p>
+      <b>Mobile Number:</b>
+      {{ selectedUser.mobileNumber || selectedUser.user?.mobileNumber }}
+    </p>
+
+  </div>
+
+</div>

@@ -1,0 +1,317 @@
+/* ==========================================
+   DIET PLANNER - USER VIEW PLANS TABLE CSS
+========================================== */
+
+body {
+  background:
+      linear-gradient(
+          rgba(255,255,255,.92),
+          rgba(255,255,255,.92)
+      ),
+      url("https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=1400");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* =========================
+ CONTAINER
+========================= */
+
+.container {
+  width: 95%;
+  margin: 35px auto;
+  animation: fadeUp .7s ease;
+}
+
+h1 {
+  text-align: center;
+  font-size: 38px;
+  color: #0f172a;
+  margin-bottom: 12px;
+}
+
+h1::before {
+  content: "🥗 ";
+}
+
+hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(
+      to right,
+      transparent,
+      #2e9f44,
+      transparent
+  );
+  margin-bottom: 30px;
+}
+
+/* =========================
+ SEARCH BOX
+========================= */
+
+.search-box {
+  width: 380px;
+  height: 52px;
+  padding: 0 18px;
+  border: 2px solid #e2e8f0;
+  border-radius: 14px;
+  outline: none;
+  margin-bottom: 25px;
+  background: white;
+  font-size: 14px;
+  transition: all .3s ease;
+}
+
+.search-box::placeholder {
+  color: #94a3b8;
+}
+
+.search-box:hover {
+  border-color: #86efac;
+}
+
+.search-box:focus {
+  border-color: #2e9f44;
+  box-shadow: 0 0 0 4px rgba(46,159,68,.15);
+}
+
+/* =========================
+ TABLE
+========================= */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255,255,255,.98);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0,0,0,.12);
+}
+
+thead {
+  display: table-header-group;
+}
+
+th {
+  background: linear-gradient(
+      90deg,
+      #061b34,
+      #0b2a4a
+  );
+  color: white;
+  padding: 16px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+
+th:first-child {
+  border-top-left-radius: 20px;
+}
+
+th:last-child {
+  border-top-right-radius: 20px;
+}
+
+td {
+  padding: 16px;
+  text-align: center;
+  vertical-align: middle;
+  border-bottom: 1px solid #edf2f7;
+  font-size: 14px;
+  color: #475569;
+}
+
+tbody tr {
+  transition: .3s ease;
+}
+
+tbody tr:hover {
+  background: #f4fff5;
+}
+
+tbody tr:nth-child(even) {
+  background: #fafdfb;
+}
+
+/* =========================
+ APPLY BUTTON
+========================= */
+
+.apply-btn,
+.green {
+  background: linear-gradient(
+      135deg,
+      #16a34a,
+      #22c55e
+  );
+  color: white;
+  border: none;
+  padding: 11px 22px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.apply-btn:hover,
+.green:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(34,197,94,.25);
+}
+
+/* =========================
+ APPLIED BUTTON
+========================= */
+
+.applied,
+.applied-btn,
+.red {
+  background: #eff6ff;
+  color: #2563eb;
+  border: 2px solid #2563eb;
+  padding: 11px 22px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: not-allowed;
+  transition: .3s;
+}
+
+.applied::before,
+.applied-btn::before {
+  content: "✓ ";
+}
+
+.applied:hover,
+.applied-btn:hover,
+.red:hover {
+  background: #dbeafe;
+}
+
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.pagination button {
+  padding: 8px 15px;
+  cursor: pointer;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.page-info {
+  font-weight: 600;
+}
+
+/* =========================
+ STATUS BADGES
+========================= */
+
+.pending {
+  background: #fff7d6;
+  color: #b45309;
+  padding: 8px 14px;
+  border-radius: 30px;
+  font-weight: 700;
+}
+
+.approved {
+  background: #dcfce7;
+  color: #166534;
+  padding: 8px 14px;
+  border-radius: 30px;
+  font-weight: 700;
+}
+
+.rejected {
+  background: #fee2e2;
+  color: #991b1b;
+  padding: 8px 14px;
+  border-radius: 30px;
+  font-weight: 700;
+}
+
+.pagination {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.pagination button {
+  padding: 8px 16px;
+  margin: 0 10px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.pagination button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.pagination button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.page-info {
+  font-weight: 600;
+}
+
+/* =========================
+ EMPTY DATA
+========================= */
+
+.no-data {
+  padding: 30px;
+  text-align: center;
+  font-size: 18px;
+  color: #64748b;
+}
+
+/* =========================
+ ANIMATION
+========================= */
+
+@keyframes fadeUp {
+  from {
+      opacity: 0;
+      transform: translateY(25px);
+  }
+
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* =========================
+ RESPONSIVE
+========================= */
+
+@media (max-width: 992px) {
+
+  .container {
+      overflow-x: auto;
+  }
+
+  .search-box {
+      width: 100%;
+  }
+
+  table {
+      min-width: 900px;
+  }
+}

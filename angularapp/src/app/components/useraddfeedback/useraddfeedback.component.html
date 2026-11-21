@@ -1,0 +1,39 @@
+<div class="form-card">
+
+  <h2>Add Feedback</h2>
+ 
+  <form #feedbackForm="ngForm" (ngSubmit)="submit(feedbackForm)">
+ 
+    <label>Feedback<span>*</span></label>
+    <textarea
+        name="feedbackText"
+        required
+        pattern="^[A-Z].*"
+        [(ngModel)]="feedbackObj.feedbackText"
+        #feedbackText="ngModel">
+    </textarea>
+
+    <div class="error" *ngIf="feedbackText.errors?.['required'] && feedbackText.touched">
+        *Feedback is required
+    </div>
+
+    <div class="error" *ngIf="feedbackText.errors?.['pattern'] && feedbackText.touched">
+        *Feedback must start with a capital letter and cannot begin with a space
+    </div>
+ 
+    <div class="error" *ngIf="feedbackForm.submitted && feedbackForm.invalid">
+      *All fields are required
+    </div>
+ 
+    <button type="submit">Submit</button>
+ 
+  </form>
+</div>
+ 
+
+<div class="overlay" *ngIf="showPopup">
+  <div class="popup">
+    <p>Successfully Added!</p>
+    <button type="button" (click)="closePopup()">Ok</button>
+  </div>
+</div>

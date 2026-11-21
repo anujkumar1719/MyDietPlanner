@@ -1,0 +1,116 @@
+<div class="container">
+
+    <h1>My Feedback</h1>
+
+    <hr>
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Feedback</th>
+                <th>Posted Date</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <tr *ngIf="isLoadUseFeed">
+                <td colspan="4" class="loading-cell">
+                    <p>Loading Feedbacks...</p>
+                </td>
+            </tr>
+
+            <tr *ngIf="feedbacks.length == 0 && !isLoadUseFeed">
+                <td colspan="4">
+                    No data found
+                </td>
+            </tr>
+
+            <tr *ngFor="let item of paginatedFeedbacks; let i = index">
+
+                <td>
+                    {{ ((currentPage - 1) * pageSize) + i + 1 }}
+                </td>
+
+                <td>
+                    {{ item.feedbackText || item.feedback }}
+                </td>
+
+                <td>
+                    {{ item.date | date:'yyyy-MM-dd' }}
+                </td>
+
+                <td>
+                    <button
+                        class="delete-btn"
+                        (click)="openDelete(item.feedbackId)">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+    <!-- Pagination -->
+
+    <div
+        class="pagination"
+        *ngIf="feedbacks.length > 0">
+
+        <button
+            (click)="prevPage()"
+            [disabled]="currentPage === 1">
+
+            Previous
+
+        </button>
+
+        <span class="page-info">
+            Page {{ currentPage }} of {{ totalPages }}
+        </span>
+
+        <button
+            (click)="nextPage()"
+            [disabled]="currentPage === totalPages">
+
+            Next
+
+        </button>
+
+    </div>
+
+</div>
+
+<!-- Delete Popup -->
+
+<div class="overlay" *ngIf="showDeletePopup">
+
+    <div class="popup">
+
+        <p>Are you sure you want to delete?</p>
+
+        <button
+            class="delete-btn"
+            (click)="confirmDelete()">
+
+            Yes Delete
+
+        </button>
+
+        <button
+            class="cancel-btn"
+            (click)="cancelDelete()">
+
+            Cancel
+
+        </button>
+
+    </div>
+
+</div>

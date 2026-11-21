@@ -1,0 +1,14 @@
+ <!-- Show navbar before login -->
+ <app-navbar *ngIf="!isLoggedIn"></app-navbar>
+ 
+ <!-- Show Admin navbar after login -->
+ <app-adminnav
+   *ngIf="isLoggedIn && role === 'Admin'">
+ </app-adminnav>
+  
+ <!-- Show User navbar after login -->
+ <app-usernav
+   *ngIf="isLoggedIn && role === 'User'">
+ </app-usernav>
+  
+ <router-outlet></router-outlet>

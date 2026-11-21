@@ -1,0 +1,36 @@
+.error-container {
+  min-height: calc(100vh - 72px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #f8fafc;
+  text-align: center;
+}
+
+.error-container h1 {
+  font-size: 96px;
+  color: #dc3545;
+  margin: 0;
+}
+
+.error-container h2 {
+  font-size: 32px;
+  color: #0f172a;
+  margin: 12px 0;
+}
+
+.error-container p {
+  color: #64748b;
+  font-size: 18px;
+  margin-bottom: 24px;
+}
+
+.error-container button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 12px 26px;
+  border-radius: 8px;
+  font-weight: 700;
+}

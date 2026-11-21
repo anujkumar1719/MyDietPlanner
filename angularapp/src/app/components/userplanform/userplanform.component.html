@@ -1,0 +1,163 @@
+<div class="form-card">
+  <button class="back-btn" type="button" (click)="back()">Back</button>
+
+  <h2>Diet Plan Application Form</h2>
+
+  <form #planForm="ngForm" (ngSubmit)="submit(planForm)">
+
+    <label>Age <span>*</span></label>
+    <input
+    type="number"
+    name="age"
+    min="1"
+    max="140"
+    required
+    [(ngModel)]="request.age"
+    #age="ngModel">
+  <div class="error" *ngIf="age.errors?.['required'] && age.touched">
+    *Age is required
+  </div>
+  <div class="error" *ngIf="age.errors?.['min'] && age.touched">
+    *Age must be at least 1
+  </div>
+  <div class="error" *ngIf="age.errors?.['max'] && age.touched">
+    *Age cannot exceed 140
+  </div>
+
+    <label>Weight (KG) <span>*</span></label>
+    <input
+    type="number"
+    name="weight"
+    min="1"
+    max="420"
+    required
+    [(ngModel)]="request.weight"
+    #weight="ngModel">
+
+    <div class="error" *ngIf="weight.errors?.['required'] && weight.touched">
+      *Weight is required
+    </div>
+
+    <div class="error" *ngIf="weight.errors?.['min'] && weight.touched">
+      *Weight must be at least 1 kg
+    </div>
+
+    <div class="error" *ngIf="weight.errors?.['max'] && weight.touched">
+      *Weight cannot exceed 420 kg
+    </div>
+
+    <label>Height (CM)<span>*</span></label>
+
+    <div class="input-group">
+      <input
+        type="number"
+        name="height"
+        required
+        min="1"
+        max="250"
+        [(ngModel)]="request.height"
+        #height="ngModel">
+
+    </div>
+
+    <div class="error" *ngIf="height.errors?.['required'] && height.touched">
+      *Height is required
+    </div>
+
+    <div class="error" *ngIf="height.errors?.['min'] && height.touched">
+      *Height must be at least 1 cm
+    </div>
+
+    <div class="error" *ngIf="height.errors?.['max'] && height.touched">
+      *Height cannot exceed 250 cm
+    </div>
+
+    <label>Gender <span>*</span></label>
+    <select
+      name="gender"
+      required
+      [(ngModel)]="request.gender"
+      #gender="ngModel">
+
+      <option value="">Select Gender</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <div class="error" *ngIf="gender.invalid && gender.touched">
+      *Gender is required
+    </div>
+
+    <label>Activity Level <span>*</span></label>
+    <select
+      name="activityLevel"
+      required
+      [(ngModel)]="request.activityLevel"
+      #activityLevel="ngModel">
+
+      <option value="">Select Activity Level</option>
+      <option value="Sedentary">Sedentary</option>
+      <option value="Lightly Active">Lightly Active</option>
+      <option value="Moderately Active">Moderately Active</option>
+      <option value="Very Active">Very Active</option>
+    </select>
+
+    <div class="error" *ngIf="activityLevel.invalid && activityLevel.touched">
+      *Activity Level is required
+    </div>
+
+    <label>Goal <span>*</span></label>
+
+    <input
+        type="text"
+        name="goal"
+        required
+        pattern="^[A-Za-z].*"
+        [(ngModel)]="request.goal"
+        #goal="ngModel">
+
+    <div class="error" *ngIf="goal.errors?.['required'] && goal.touched">
+      *Goal is required
+    </div>
+
+    <div class="error" *ngIf="goal.errors?.['pattern'] && goal.touched">
+      *Goal cannot start with a space or number
+    </div>
+
+    <label>Medical Conditions <span>*</span></label>
+
+    <input
+        type="text"
+        name="medicalConditions"
+        required
+        pattern="^[A-Za-z].*"
+        [(ngModel)]="request.medicalConditions"
+        #medicalConditions="ngModel">
+
+    <div class="error" *ngIf="medicalConditions.errors?.['required'] && medicalConditions.touched">
+      *Medical Conditions are required
+    </div>
+
+    <div class="error" *ngIf="medicalConditions.errors?.['pattern'] && medicalConditions.touched">
+      *Medical Conditions cannot start with a space or number</div>
+
+    <div class="error" *ngIf="planForm.submitted && planForm.invalid">
+      *All fields are required
+    </div>
+
+    <button class="submit-btn" type="submit">
+      Submit
+    </button>
+
+  </form>
+</div>
+
+<div class="overlay" *ngIf="showPopup">
+  <div class="popup">
+    <p>Successfully Added!</p>
+    <button type="button" (click)="ok()">
+      OK
+    </button>
+  </div>
+</div>

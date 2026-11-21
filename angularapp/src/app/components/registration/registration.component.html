@@ -1,0 +1,165 @@
+<div class="register-container">
+ 
+  <div class="register-card">
+ 
+    <h2>Registration</h2>
+ 
+    <form #registerForm="ngForm" (ngSubmit)="onSubmit()">
+ 
+      <label>User Name<span>*</span></label>
+      <input
+        type="text"
+        name="username"
+        required
+        minlength="3"
+        pattern="^[A-Za-z][A-Za-z0-9]*$"
+        [(ngModel)]="user.username"
+        #username="ngModel"
+        placeholder="Enter your username">
+
+      <div class="error" *ngIf="username.errors?.['required'] && username.touched">
+          *User Name is required
+      </div>
+
+      <div class="error" *ngIf="username.errors?.['minlength'] && username.touched">
+          *User Name must be at least 3 characters
+      </div>
+
+      <div class="error" *ngIf="username.errors?.['pattern'] && username.touched">
+        *User Name must start with a letter and cannot contain spaces
+    </div>
+ 
+      <label>Email<span>*</span></label>
+      <input
+          type="email"
+          name="email"
+          required
+          email
+          pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Za-z]{2,}$"
+          [(ngModel)]="user.email"
+          #email="ngModel"
+          placeholder="Enter your email address">
+
+      <div class="error" *ngIf="email.errors?.['required'] && email.touched">
+          *Email is required
+      </div>
+
+      <div class="error" *ngIf="(email.errors?.['email'] || email.errors?.['pattern']) && email.touched">
+          *Please enter a valid email address
+      </div>
+
+      <label>Password<span>*</span></label>
+      <input
+          type="password"
+          name="password"
+          required
+          minlength="8"
+          pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+          [(ngModel)]="user.password"
+          #password="ngModel"
+      >
+ 
+      <div class="error" *ngIf="password.errors?.['required'] && password.touched">
+        *Password is required
+      </div>
+
+      <div class="error" *ngIf="password.errors?.['minlength'] && password.touched">
+        *Password must be at least 8 characters
+      </div>
+
+      <div class="error" *ngIf="password.errors?.['pattern'] && password.touched">
+        *Password must contain:
+        <br>• One uppercase letter
+        <br>• One lowercase letter
+        <br>• One number
+        <br>• One special character (@$!%*?&)
+      </div>
+
+      <label>Confirm Password<span>*</span></label>
+      <input
+        type="password"
+        name="ConfirmPassword"
+        #ConfirmPassword="ngModel"
+        required
+        minlength="8"
+        [(ngModel)]="confirmPassword"
+        #password="ngModel"
+        placeholder="Re-enter your password"
+      >
+
+      <div class="error" *ngIf="confirmPassword!=user.password && ConfirmPassword.touched">
+        *Confirm Password does not match the Password
+      </div>
+ 
+      <label>Mobile Number<span>*</span></label>
+      <input
+        type="text"
+        name="mobileNumber"
+        required
+        pattern="[6-9][0-9]{9}"
+        maxlength="10"
+        [(ngModel)]="user.mobileNumber"
+        #mobileNumber="ngModel"
+        placeholder="Enter 10 digit mobile number"
+      >
+ 
+      <div class="error" *ngIf="mobileNumber.errors?.['required'] && mobileNumber.touched">
+        *Mobile Number is required
+      </div>
+
+      <div class="error" *ngIf="mobileNumber.errors?.['pattern'] && mobileNumber.touched">
+        *Mobile Number must:
+        <br>• Start with 6, 7, 8 or 9
+        <br>• Contain exactly 10 digits
+      </div>
+ 
+      <label>Role<span>*</span></label>
+      <select
+        name="role"
+        required
+        [(ngModel)]="user.userRole"
+        #role="ngModel"
+      >
+        <option value="">Select Role</option>
+        <option value="User">User</option>
+        <option value="Admin">Admin</option>
+      </select>
+ 
+      <div class="error" *ngIf="role.invalid && role.touched">
+        *Role is required
+      </div>
+ 
+      <div class="error" *ngIf="registerForm.submitted && registerForm.invalid">
+        *All fields are required
+      </div>
+ 
+      <div class="error" *ngIf="message">
+        {{ message }}
+      </div>
+ 
+      <button type="submit">Register</button>
+ 
+      <p>
+        Already have an account?
+        <a routerLink="/login">Login</a>
+      </p>
+ 
+    </form>
+ 
+  </div>
+
+  <div class="overlay" *ngIf="showPopup">
+    <div class="popup">
+      <h3>✅ Registration Successful</h3>
+
+      <p>
+        Your account has been created successfully.
+      </p>
+
+      <button type="button" (click)="closePopup()">
+        OK
+      </button>
+    </div>
+  </div>
+ 
+</div>
